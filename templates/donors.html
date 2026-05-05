@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %}Donors{% endblock %}
+
+{% block content %}
+<h2 class="text-center text-danger mb-4">Available Donors 🩸</h2>
+
+<form method="GET" class="mb-3">
+    <input type="text" name="q" placeholder="Search by Blood Group"
+           class="form-control">
+</form>
+
+<div class="text-end mb-3">
+    <a href="/add-donor/" class="btn btn-danger">+ Add Donor</a>
+</div>
+
+<table class="table table-bordered table-striped shadow">
+    <thead class="table-danger">
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Blood Group</th>
+            <th>Phone</th>
+            <th>Address</th>
+            <th>WhatsApp</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for d in donors %}
+        <tr>
+            <td>{{ d.name }}</td>
+            <td>{{ d.age }}</td>
+            <td>{{ d.blood_group }}</td>
+            <td>{{ d.phone }}</td>
+            <td>{{ d.address }}</td>
+            <td>
+                <a href="https://wa.me/91{{ d.phone }}" class="btn btn-success btn-sm" target="_blank">
+                    WhatsApp
+                </a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="5" class="text-center">No donors available</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

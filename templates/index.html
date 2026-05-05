@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<div class="alert alert-danger text-center fw-bold">
+    ⚠️ Emergency Blood Needed! Register as donor and save lives.
+</div>
+
+<!-- HERO SECTION -->
+<div class="p-5 text-center bg-danger text-white rounded shadow">
+    <h1 class="display-5 fw-bold">Donate Blood, Save Lives ❤️</h1>
+    <p class="lead">Your one donation can save up to 3 lives</p>
+    <a href="/request/" class="btn btn-light btn-lg mt-3">Request Blood</a>
+    <a href="/add-donor/" class="btn btn-outline-light btn-lg mt-3 ms-2">Become Donor</a>
+</div>
+
+<!-- FEATURES -->
+<div class="row text-center mt-5">
+
+    <div class="col-md-4 mb-4">
+        <div class="card shadow p-4 h-100">
+            <h4 class="text-danger">🩸 Become Donor</h4>
+            <p>Register yourself and help people in need.</p>
+            <a href="/add-donor/" class="btn btn-danger">Join Now</a>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="card shadow p-4 h-100">
+            <h4 class="text-danger">🚑 Emergency Request</h4>
+            <p>Quickly request blood in emergency situations.</p>
+            <a href="/request/" class="btn btn-danger">Request Now</a>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="card shadow p-4 h-100">
+            <h4 class="text-danger">🔍 Find Donors</h4>
+            <p>Search available donors by blood group.</p>
+            <a href="/donors/" class="btn btn-danger">View Donors</a>
+        </div>
+    </div>
+
+</div>
+
+<!-- BLOOD AVAILABILITY COUNTER -->
+<div class="mt-5">
+    <h3 class="text-center text-danger mb-4">Blood Availability</h3>
+
+    <div class="row text-center">
+        {% for b in blood_counts %}
+        <div class="col-md-3 mb-3">
+            <div class="card blood-card p-4 shadow">
+                <h2 class="text-danger fw-bold">{{ b.blood_group }}</h2>
+                <p class="mb-0">{{ b.count }} Donors Available</p>
+            </div>
+        </div>
+        {% empty %}
+        <p class="text-center">No donors available yet</p>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- BLOOD GROUP SECTION -->
+<div class="mt-5">
+    <h3 class="text-center text-danger mb-4">Blood Groups</h3>
+
+    <div class="row text-center">
+        <div class="col-md-3 mb-3"><div class="card p-3 shadow">A+</div></div>
+        <div class="col-md-3 mb-3"><div class="card p-3 shadow">B+</div></div>
+        <div class="col-md-3 mb-3"><div class="card p-3 shadow">O+</div></div>
+        <div class="col-md-3 mb-3"><div class="card p-3 shadow">AB+</div></div>
+        <div class="col-md-3 mb-3"><div class="card p-3 shadow">A-</div></div>
+        <div class="col-md-3 mb-3"><div class="card p-3 shadow">B-</div></div>
+        <div class="col-md-3 mb-3"><div class="card p-3 shadow">O-</div></div>
+        <div class="col-md-3 mb-3"><div class="card p-3 shadow">AB-</div></div>
+    </div>
+</div>
+
+<!-- CALL TO ACTION -->
+<div class="text-center mt-5">
+    <h4>Be a Hero. Donate Blood Today ❤️</h4>
+    <a href="/add-donor/" class="btn btn-danger btn-lg mt-3">Join as Donor</a>
+</div>
+
+{% endblock %}

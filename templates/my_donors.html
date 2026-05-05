@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}My Donors{% endblock %}
+
+{% block content %}
+
+<h2 class="text-center text-danger mb-4">My Donor Registrations 🩸</h2>
+
+<table class="table table-bordered table-striped shadow">
+    <thead class="table-danger">
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Blood Group</th>
+            <th>Phone</th>
+            <th>Address</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for d in donors %}
+        <tr>
+            <td>{{ d.name }}</td>
+            <td>{{ d.age }}</td>
+            <td>{{ d.blood_group }}</td>
+            <td>{{ d.phone }}</td>
+            <td>{{ d.address }}</td>
+            <td>{{ d.status }}</td>
+            <td>
+                <a href="/donor/edit/{{ d.id }}/" class="btn btn-warning btn-sm">Edit</a>
+                <a href="/donor/delete/{{ d.id }}/" class="btn btn-danger btn-sm"
+                onclick="return confirm('Are you sure?')">Delete</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="7" class="text-center">No donor registrations found</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

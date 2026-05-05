@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block content %}
+
+<div class="text-center mb-4">
+    <h2 class="text-danger fw-bold">Contact Us 📞</h2>
+    <p class="lead">We are here to help you</p>
+</div>
+
+<!-- SUCCESS MESSAGE -->
+{% if success %}
+<div class="alert alert-success text-center fw-bold">
+    {{ success }}
+</div>
+{% endif %}
+
+<div class="row">
+
+    <!-- CONTACT INFO -->
+    <div class="col-md-5 mb-4">
+        <div class="card shadow p-4 h-100">
+            <h5 class="text-danger">📍 Address</h5>
+            <p>Blood Bank Center, Kerala, India</p>
+
+            <h5 class="text-danger mt-3">📞 Phone</h5>
+            <p>+91 ***** *****</p>
+
+            <h5 class="text-danger mt-3">✉️ Email</h5>
+            <p>bloodbank@gmail.com</p>
+
+            <hr>
+
+            <p class="text-muted">
+                Contact us anytime for blood donation or emergency requests.
+            </p>
+        </div>
+    </div>
+
+    <!-- CONTACT FORM -->
+    <div class="col-md-7">
+        <div class="card shadow p-4">
+            <h5 class="text-danger mb-3">Send Message</h5>
+
+            <form method="POST">
+                {% csrf_token %}
+
+                <input type="text" name="name" placeholder="Your Name"
+                       class="form-control mb-3" required>
+
+                <input type="email" name="email" placeholder="Your Email"
+                       class="form-control mb-3" required>
+
+                <textarea name="message" rows="4"
+                          placeholder="Your Message"
+                          class="form-control mb-3" required></textarea>
+
+                <button class="btn btn-danger w-100">
+                    Send Message
+                </button>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

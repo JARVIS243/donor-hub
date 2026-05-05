@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}Emergency Requests{% endblock %}
+
+{% block content %}
+
+<h2 class="text-center text-danger mb-4">Emergency Blood Requests 🚑</h2>
+
+<table class="table table-bordered table-striped shadow">
+    <thead class="table-danger">
+        <tr>
+            <th>Patient</th>
+            <th>Blood Group</th>
+            <th>Units</th>
+            <th>Hospital</th>
+            <th>Contact</th>
+            <th>Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for r in requests %}
+        <tr>
+            <td>{{ r.patient_name }}</td>
+            <td>{{ r.blood_group }}</td>
+            <td>{{ r.units_needed }}</td>
+            <td>{{ r.hospital }}</td>
+            <td>{{ r.contact }}</td>
+            <td>{{ r.date }}</td>
+            <td>
+                <a href="/emergency/edit/{{ r.id }}/" class="btn btn-warning btn-sm">Edit</a>
+                <a href="/emergency/delete/{{ r.id }}/" class="btn btn-danger btn-sm"
+                onclick="return confirm('Are you sure?')">Delete</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="7" class="text-center">No emergency requests</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit Donor{% endblock %}
+
+{% block content %}
+
+<h2 class="text-center text-danger mb-4">Edit Donor</h2>
+
+<form method="POST" class="shadow p-4 rounded bg-light">
+    {% csrf_token %}
+
+    <input type="text" name="name" value="{{ donor.name }}" class="form-control mb-3" required>
+
+    <input type="number" name="age" value="{{ donor.age }}" class="form-control mb-3" required>
+
+    <select name="blood" class="form-control mb-3" required>
+        <option selected>{{ donor.blood_group }}</option>
+        <option>A+</option><option>A-</option>
+        <option>B+</option><option>B-</option>
+        <option>O+</option><option>O-</option>
+        <option>AB+</option><option>AB-</option>
+    </select>
+
+    <input type="text" name="phone" value="{{ donor.phone }}" class="form-control mb-3" required>
+
+    <textarea name="address" class="form-control mb-3" required>{{ donor.address }}</textarea>
+
+    <button class="btn btn-danger w-100">Update Donor</button>
+</form>
+
+{% endblock %}

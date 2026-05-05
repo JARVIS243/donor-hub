@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Donor{% endblock %}
+
+{% block content %}
+
+<h2 class="text-center text-danger mb-4">Become a Donor 🩸</h2>
+
+<form method="POST" class="shadow p-4 rounded bg-light">
+    {% csrf_token %}
+
+    <input type="text" name="name" placeholder="Full Name" class="form-control mb-3" required>
+
+    <input type="number" name="age" placeholder="Age" class="form-control mb-3" required>
+
+    <select name="blood" class="form-control mb-3" required>
+        <option value="">Select Blood Group</option>
+        <option>A+</option>
+        <option>B+</option>
+        <option>O+</option>
+        <option>AB+</option>
+        <option>A-</option>
+        <option>B-</option>
+        <option>O-</option>
+        <option>AB-</option>
+    </select>
+
+    <input type="text" name="phone" placeholder="Phone Number" class="form-control mb-3" required>
+
+    <textarea name="address" placeholder="Address" class="form-control mb-3"></textarea>
+
+    <button type="submit" class="btn btn-danger w-100">Register</button>
+</form>
+
+{% endblock %}
