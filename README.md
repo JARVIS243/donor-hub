@@ -1,6 +1,3 @@
-Here’s a **complete professional README.md** for your `donor-hub` project 👇
-(copy–paste directly)
-
 ---
 
 ```md
