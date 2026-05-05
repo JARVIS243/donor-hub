@@ -1,6 +1,3 @@
----
-
-```md
 # 🩸 Donor Hub
 
 A full-stack Blood Bank Management System built using Django that connects donors with recipients and helps manage emergency blood requests efficiently.
