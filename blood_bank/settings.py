@@ -25,11 +25,7 @@ SECRET_KEY = 'django-insecure-bif-d*s)okybcm6f3p8ql^y&w^(!0)^z=b18x-__ddv&4micmi
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = [
-    'donor-hub-p72a.onrender.com',
-    '127.0.0.1',
-    'localhost'
-]
+ALLOWED_HOSTS = ['*']
 
 CSRF_TRUSTED_ORIGINS = [
     'https://donor-hub-iayt.onrender.com'
