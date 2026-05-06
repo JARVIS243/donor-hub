@@ -1,0 +1,5 @@
+pip install gunicorn whitenoise
+pip freeze > requirements.txt
+git add requirements.txt
+git commit -m "Add deployment requirements"
+git push
