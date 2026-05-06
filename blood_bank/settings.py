@@ -126,5 +126,5 @@ STATICFILES_DIRS = [
 LOGIN_URL = '/login/'
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://donor-hub-p72a.onrender.com'
+    'https://donor-hub-iayt.onrender.com'
 ]
