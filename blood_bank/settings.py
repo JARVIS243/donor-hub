@@ -31,6 +31,10 @@ ALLOWED_HOSTS = [
     'localhost'
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://donor-hub-iayt.onrender.com'
+]
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -124,7 +128,3 @@ STATICFILES_DIRS = [
 ]
 
 LOGIN_URL = '/login/'
-
-CSRF_TRUSTED_ORIGINS = [
-    'https://donor-hub-iayt.onrender.com'
-]
